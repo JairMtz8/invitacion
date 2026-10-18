@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bautizo</title>
+  <meta name="description" content="Invitación al bautizo. Confirma tu asistencia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- PORTADA -->
+  <header class="hero">
+    <div class="hero__inner reveal">
+      <p class="eyebrow">Con la bendición de Dios</p>
+      <p class="hero__intro">te invitamos al bautizo de</p>
+      <h1 class="hero__name" data-cfg="nombre"></h1>
+      <p class="hero__fullname" data-cfg="nombreCompleto"></p>
+      <div class="divider"><span>✦</span></div>
+      <p class="hero__date" data-cfg="fechaTexto"></p>
+      <a href="#confirmar" class="btn btn--ghost">Confirmar asistencia</a>
+    </div>
+    <a href="#mensaje" class="scroll-hint" aria-label="Ver más">⌄</a>
+  </header>
+
+  <main>
+    <!-- PASE PERSONALIZADO (solo aparece si el link trae ?i=codigo válido) -->
+    <section class="pase reveal" id="pase" hidden>
+      <p class="pase__label">Esta invitación es para</p>
+      <p class="pase__nombre" id="paseNombre"></p>
+      <p class="pase__lugares" id="paseLugares"></p>
+      <p class="pase__estado" id="paseEstado"></p>
+    </section>
+
+    <!-- MENSAJE -->
+    <section class="section" id="mensaje">
+      <blockquote class="quote reveal">
+        <p data-cfg="frase"></p>
+      </blockquote>
+    </section>
+
+    <!-- CUENTA REGRESIVA -->
+    <section class="section section--tint">
+      <h2 class="section__title reveal">Faltan</h2>
+      <div class="countdown reveal" id="countdown">
+        <div><span id="cd-dias">0</span><small>días</small></div>
+        <div><span id="cd-horas">0</span><small>horas</small></div>
+        <div><span id="cd-min">0</span><small>minutos</small></div>
+        <div><span id="cd-seg">0</span><small>segundos</small></div>
+      </div>
+    </section>
+
+    <!-- PAPÁS Y PADRINOS -->
+    <section class="section">
+      <div class="people">
+        <div class="people__group reveal">
+          <h3>Mis papás</h3>
+          <p data-cfg="papas"></p>
+        </div>
+        <div class="people__group reveal">
+          <h3 data-cfg="padrinosTitulo"></h3>
+          <p data-cfg="padrinos"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CEREMONIA Y RECEPCIÓN -->
+    <section class="section section--tint">
+      <h2 class="section__title reveal">¿Dónde y cuándo?</h2>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__icon">⛪</div>
+          <h3>Ceremonia</h3>
+          <p class="card__time" data-cfg="ceremonia.hora"></p>
+          <p class="card__place" data-cfg="ceremonia.lugar"></p>
+          <p class="card__addr" data-cfg="ceremonia.direccion"></p>
+          <a class="btn btn--small" data-cfg-href="ceremonia.mapa" target="_blank" rel="noopener">Ver ubicación</a>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon">🥂</div>
+          <h3>Recepción</h3>
+          <p class="card__time" data-cfg="recepcion.hora"></p>
+          <p class="card__place" data-cfg="recepcion.lugar"></p>
+          <p class="card__addr" data-cfg="recepcion.direccion"></p>
+          <a class="btn btn--small" data-cfg-href="recepcion.mapa" target="_blank" rel="noopener">Ver ubicación</a>
+        </article>
+      </div>
+      <p class="dresscode reveal"><strong>Código de vestimenta:</strong> <span data-cfg="vestimenta"></span></p>
+    </section>
+
+    <!-- CONFIRMACIÓN -->
+    <section class="section" id="confirmar">
+      <h2 class="section__title reveal">Confirma tu asistencia</h2>
+      <p class="section__sub reveal">Por favor confírmanos antes del <strong data-cfg="fechaLimite"></strong></p>
+
+      <form class="rsvp reveal" id="rsvp" novalidate>
+        <label class="field">
+          <span>Nombre completo</span>
+          <input type="text" name="nombre" id="f-nombre" required autocomplete="name" placeholder="Ej. Familia Pérez López">
+        </label>
+
+        <fieldset class="field">
+          <legend>¿Nos acompañas?</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="asiste" value="si" checked><span>¡Sí, ahí estaré!</span></label>
+            <label class="choice"><input type="radio" name="asiste" value="no"><span>No podré asistir</span></label>
+          </div>
+        </fieldset>
+
+        <label class="field" id="campo-personas">
+          <span>¿Cuántas personas asistirán? (incluyéndote)</span>
+          <select name="personas" id="f-personas"></select>
+        </label>
+
+        <label class="field">
+          <span>Mensaje para la familia <em>(opcional)</em></span>
+          <textarea name="mensaje" rows="3" placeholder="Unas palabras bonitas…"></textarea>
+        </label>
+
+        <p class="form-error" id="form-error" role="alert"></p>
+        <button type="submit" class="btn btn--solid">Enviar confirmación</button>
+      </form>
+
+      <div class="thanks" id="thanks" hidden>
+        <p class="thanks__big">¡Gracias!</p>
+        <p id="thanks-text"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__name" data-cfg="nombre"></p>
+    <p data-cfg="fechaTexto"></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
