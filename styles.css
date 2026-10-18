@@ -1,10 +1,10 @@
 :root {
-  --rosa: #e8c4c4;
-  --rosa-claro: #f8eded;
-  --crema: #fffaf6;
-  --dorado: #b8955a;
-  --texto: #5a4a46;
-  --texto-suave: #8a7a75;
+  --rosa: #dfaeae;
+  --rosa-claro: #f5e1e1;
+  --crema: #fdf5ef;
+  --dorado: #a8823f;
+  --texto: #4e3d39;
+  --texto-suave: #7a6560;
   --script: "Great Vibes", cursive;
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Montserrat", system-ui, sans-serif;
@@ -33,9 +33,9 @@ body {
   text-align: center;
   padding: 3rem 1.25rem;
   background:
-    radial-gradient(circle at 15% 20%, rgba(232, 196, 196, .55), transparent 40%),
-    radial-gradient(circle at 85% 80%, rgba(232, 196, 196, .45), transparent 45%),
-    radial-gradient(circle at 80% 15%, rgba(184, 149, 90, .12), transparent 30%),
+    radial-gradient(circle at 15% 20%, rgba(223, 174, 174, .6), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(223, 174, 174, .5), transparent 45%),
+    radial-gradient(circle at 80% 15%, rgba(168, 130, 63, .12), transparent 30%),
     var(--crema);
   overflow: hidden;
 }
@@ -43,7 +43,7 @@ body {
   content: "";
   position: absolute;
   inset: 1.25rem;
-  border: 1px solid rgba(184, 149, 90, .45);
+  border: 1px solid rgba(168, 130, 63, .45);
   border-radius: 200px 200px 12px 12px;
   pointer-events: none;
 }
@@ -88,8 +88,17 @@ body {
 .divider::before, .divider::after {
   content: ""; flex: 1; height: 1px; background: currentColor; opacity: .5;
 }
+/* Flores al pie de la portada; multiply hace invisible el fondo blanco de la foto */
+.hero { padding-bottom: clamp(9rem, 32vw, 14rem); }
+.hero__flores {
+  position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+  width: min(100%, 44rem); height: auto;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
 .scroll-hint {
-  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  z-index: 1;
+  position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%);
   color: var(--dorado); text-decoration: none; font-size: 1.75rem;
   animation: bob 2s ease-in-out infinite;
 }
@@ -113,7 +122,7 @@ body {
 .btn--ghost { border: 1px solid var(--dorado); color: var(--dorado); background: transparent; }
 .btn--ghost:hover { background: var(--dorado); color: #fff; }
 .btn--solid { border: none; background: var(--dorado); color: #fff; width: 100%; }
-.btn--solid:hover { background: #a3824a; }
+.btn--solid:hover { background: #8f6c30; }
 .btn--solid:disabled { opacity: .6; cursor: wait; }
 .btn--small { padding: .6rem 1.4rem; font-size: .7rem; border: 1px solid var(--dorado); color: var(--dorado); }
 .btn--small:hover { background: var(--dorado); color: #fff; }
@@ -129,6 +138,20 @@ body {
   margin-bottom: 1.5rem;
 }
 .section__sub { margin: -0.75rem 0 2rem; color: var(--texto-suave); }
+
+/* ---------- Foto de Liah (marco de arco, como la portada) ---------- */
+.foto {
+  max-width: 20rem; margin: 0 auto 3rem;
+  padding: .6rem; background: #fff;
+  border: 1px solid rgba(168, 130, 63, .45);
+  border-radius: 999px 999px 20px 20px;
+  box-shadow: 0 14px 34px rgba(90, 74, 70, .12);
+}
+.foto img {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 3 / 4; object-fit: cover; object-position: center top;
+  border-radius: 999px 999px 14px 14px;
+}
 
 .quote {
   max-width: 36rem; margin: 0 auto;
@@ -146,7 +169,7 @@ body {
   margin: -2.5rem auto 0;
   position: relative;
   background: #fff;
-  border: 1px solid rgba(184, 149, 90, .35);
+  border: 1px solid rgba(168, 130, 63, .35);
   border-radius: 16px;
   padding: 1.5rem;
   text-align: center;
@@ -211,24 +234,24 @@ body {
 .field input[type="text"], .field select, .field textarea {
   font: inherit; font-weight: 400; color: var(--texto);
   width: 100%;
-  border: 1px solid #e6d9d4; border-radius: 12px;
+  border: 1px solid #e3cec6; border-radius: 12px;
   padding: .8rem 1rem; background: var(--crema);
   transition: border-color .2s, box-shadow .2s;
 }
 .field input:focus, .field select:focus, .field textarea:focus {
   outline: none; border-color: var(--dorado);
-  box-shadow: 0 0 0 3px rgba(184, 149, 90, .18);
+  box-shadow: 0 0 0 3px rgba(168, 130, 63, .18);
 }
 .field textarea { resize: vertical; }
 .choices { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
 .choice input { position: absolute; opacity: 0; pointer-events: none; }
 .choice span {
   display: block; text-align: center; font-size: .85rem;
-  border: 1px solid #e6d9d4; border-radius: 12px; padding: .8rem .5rem;
+  border: 1px solid #e3cec6; border-radius: 12px; padding: .8rem .5rem;
   cursor: pointer; transition: all .2s;
 }
 .choice input:checked + span { background: var(--rosa-claro); border-color: var(--dorado); color: var(--texto); font-weight: 500; }
-.choice input:focus-visible + span { box-shadow: 0 0 0 3px rgba(184, 149, 90, .3); }
+.choice input:focus-visible + span { box-shadow: 0 0 0 3px rgba(168, 130, 63, .3); }
 .form-error { color: #b4534b; font-size: .85rem; min-height: 1em; margin-bottom: -0.5rem; }
 .form-error:empty { display: none; }
 
@@ -238,6 +261,11 @@ body {
 
 /* ---------- Footer ---------- */
 .footer { text-align: center; padding: 3rem 1.25rem 3.5rem; background: var(--rosa-claro); color: var(--texto-suave); font-size: .85rem; }
+.footer__flores {
+  display: block; width: min(100%, 26rem); height: auto; margin: 0 auto .5rem;
+  aspect-ratio: 612 / 190; object-fit: cover; object-position: bottom; /* recorta el blanco de arriba */
+  mix-blend-mode: multiply;
+}
 .footer__name { font-family: var(--script); font-size: 2.6rem; color: var(--dorado); line-height: 1.2; }
 
 /* ---------- Animación ---------- */

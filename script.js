@@ -3,7 +3,7 @@
 // =====================================================================
 const CONFIG = {
   nombre: "Liah",
-  nombreCompleto: "Liah Martínez Torres",
+  apellidos: "Martínez Torres",
   fechaTexto: "Sábado 9 de enero de 2027",
   fechaEvento: "2027-01-09T11:00:00",   // fecha y hora para la cuenta regresiva
   fechaLimite: "26 de diciembre",
@@ -12,7 +12,7 @@ const CONFIG = {
 
   papas: "Yulissa Guadalupe Torres Compean\n&\nKevyn Noé Martínez Beltrán",
   padrinosTitulo: "Mi padrino",   // "Mis padrinos" si después se agrega madrina
-  padrinos: "Jesús Tadeo Lucas Hernández",
+  padrinos: "Jesús Tadeo Hernández Lucas",
 
   ceremonia: {
     hora: "11:00 a.m.",
@@ -27,7 +27,7 @@ const CONFIG = {
     mapa: "https://www.google.com/maps/place/Restaurante+Verdelimon/@18.5564411,-99.5999651,16.5z/data=!4m6!3m5!1s0x85cc4b00122b0277:0xd9295df14742535f!8m2!3d18.5570096!4d-99.599962!16s%2Fg%2F11vm1zy7yr",
   },
 
-  vestimenta: "Formal · evitar color blanco",
+  vestimenta: "Formal",
 
   // URL de la "Aplicación web" de Apps Script (termina en /exec). Ver apps-script/Code.gs
   sheetUrl: "https://script.google.com/macros/s/AKfycbw4C4QZLJonUdyaxbWNiZB0snHti9LLST13TaFZKNPTfP_JjDDqm87eYXAaHdsyecCmTQ/exec",

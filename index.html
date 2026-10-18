@@ -3,8 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bautizo</title>
-  <meta name="description" content="Invitación al bautizo. Confirma tu asistencia.">
+  <title>Bautizo de Liah</title>
+  <meta name="description" content="Sábado 9 de enero de 2027 · Taxco, Gro. Confirma tu asistencia.">
+
+  <!-- Vista previa al compartir el link (WhatsApp, Facebook, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:title" content="Bautizo de Liah ✦">
+  <meta property="og:description" content="Sábado 9 de enero de 2027 · Taxco, Gro. Te esperamos con mucho cariño. Confirma tu asistencia.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -14,11 +21,12 @@
 
   <!-- PORTADA -->
   <header class="hero">
+    <img class="hero__flores" src="Flores.jpeg" alt="" width="612" height="358">
     <div class="hero__inner reveal">
       <p class="eyebrow">Con la bendición de Dios</p>
       <p class="hero__intro">te invitamos al bautizo de</p>
       <h1 class="hero__name" data-cfg="nombre"></h1>
-      <p class="hero__fullname" data-cfg="nombreCompleto"></p>
+      <p class="hero__fullname" data-cfg="apellidos"></p>
       <div class="divider"><span>✦</span></div>
       <p class="hero__date" data-cfg="fechaTexto"></p>
       <a href="#confirmar" class="btn btn--ghost">Confirmar asistencia</a>
@@ -37,6 +45,9 @@
 
     <!-- MENSAJE -->
     <section class="section" id="mensaje">
+      <figure class="foto reveal">
+        <img src="Liah.jpeg" alt="Liah" width="1086" height="1448" loading="lazy">
+      </figure>
       <blockquote class="quote reveal">
         <p data-cfg="frase"></p>
       </blockquote>
@@ -57,7 +68,7 @@
     <section class="section">
       <div class="people">
         <div class="people__group reveal">
-          <h3>Mis papás</h3>
+          <h3>Mis padres</h3>
           <p data-cfg="papas"></p>
         </div>
         <div class="people__group reveal">
@@ -132,6 +143,7 @@
   </main>
 
   <footer class="footer">
+    <img class="footer__flores" src="Flores.jpeg" alt="" width="612" height="358" loading="lazy">
     <p class="footer__name" data-cfg="nombre"></p>
     <p data-cfg="fechaTexto"></p>
   </footer>
